@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/contact.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            emailjs.init('FWkp6bW7R2_J2aga9');
+
+            document.querySelector('.btn-send').addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const params = {
+                    nome: document.querySelector('input[type=text]').value,
+                    email: document.querySelector('input[type=email]').value,
+                    mensagem: document.querySelector('textarea').value
+                };
+
+                emailjs.send('service_ra4hw8p', 'template_r7mciwd', params)
+                    .then(() => alert('Mensagem enviada com sucesso!'))
+                    .catch((err) => {
+                        console.log('erro:', err);
+                        alert('Erro ao enviar, tente novamente.');
+                    });
+            });
+        });
+    </script>
+    <div class="container">
+
+        <div class="page-header">
+            <h1 class="page-title">Entre em Contato</h1>
+            <p class="page-desc">Tem um projeto em mente? Vamos conversar.</p>
+        </div>
+
+        <div class="contact-grid">
+
+            <!-- Formulário -->
+            <div class="contact-form">
+                <div class="field">
+                    <label>Nome</label>
+                    <input type="text" placeholder="Seu nome">
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input type="email" placeholder="seu@email.com">
+                </div>
+                <div class="field">
+                    <label>Mensagem</label>
+                    <textarea placeholder="Escreva sua mensagem..." rows="5"></textarea>
+                </div>
+                <button class="btn-send">Enviar Mensagem</button>
+            </div>
+
+            <!-- Informações -->
+            <div class="contact-info">
+                <a href="mailto:contato.kaikycouto@gmail.com" target="_blank" class="info-card">
+                    <div class="info-icon blue">✉</div>
+                    <div>
+                        <p class="info-label">Email</p>
+                        <p class="info-value">contato.kaikycouto@gmail.com</p>
+                    </div>
+                </a>
+                <div class="info-card">
+                    <div class="info-icon green">⚲</div>
+                    <div>
+                        <p class="info-label">Localização</p>
+                        <p class="info-value">São Paulo, Brasil</p>
+                    </div>
+                </div>
+                <a href="https://linkedin.com/in/kaiky-couto" target="_blank" class="info-card">
+                    <div class="info-icon purple">in</div>
+                    <div>
+                        <p class="info-label">LinkedIn</p>
+                        <p class="info-value">linkedin.com/in/kaiky-couto</p>
+                    </div>
+                </a>
+                <a href="https://github.com/KaikyCouto-Dev" target="_blank" class="info-card">
+                    <div class="info-icon blue">⌥</div>
+                    <div>
+                        <p class="info-label">GitHub</p>
+                        <p class="info-value">github.com/KaikyCouto-Dev</p>
+                    </div>
+                </a>
+                <a href="https://instagram.com/kaikycouto_dev" target="_blank" class="info-card">
+                    <div class="info-icon pink">🅾</div>
+                    <div>
+                        <p class="info-label">Instagram</p>
+                        <p class="info-value">@kaikycouto_dev</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

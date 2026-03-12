@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <section class="hero">
+
+            <div class="hero-left">
+                <h1 class="hero-greeting">Olá, eu sou</h1>
+                <h1 class="hero-name">Kaiky Couto</h1>
+
+                <p class="hero-role">Desenvolvedor Web & Software</p>
+
+                <p class="hero-desc">
+                    Construo soluções digitais inovadoras com código limpo e eficiente.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="programming.html" class="btn-primary">Ver Projetos</a>
+                    <a href="contact.html" class="btn-secondary">Entre em Contato</a>
+                </div>
+            </div>
+
+
+            <div class="hero-right">
+
+                <div class="hero-image-box">
+
+                    <img src="../Imagens/site.png" alt="Ilustração">
+
+                    <div class="code-badge">&lt;OLÁ Mundo /&gt;</div>
+                    <div class="code-badge-2">&lt;/&gt; clean code</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="cards-section">
+
+            <div class="cards-grid">
+
+                <div class="card"
+                    onclick="parent.document.querySelector('iframe[name=conteudo]').src='programming.html#web'"
+                    style="cursor:pointer;">
+                    <div class="card-icon blue">&lt;/&gt;</div>
+                    <span class="card-label">Desenvolvimento Web</span>
+                </div>
+
+                <div class="card"
+                    onclick="parent.document.querySelector('iframe[name=conteudo]').src='programming.html#backend'"
+                    style="cursor:pointer;">
+                    <div class="card-icon green">⚙</div>
+                    <span class="card-label">Soluções Backend</span>
+                </div>
+
+                <div class="card"
+                    onclick="parent.document.querySelector('iframe[name=conteudo]').src='programming.html#uxui'"
+                    style="cursor:pointer;">
+                    <div class="card-icon purple">🕹</div>
+                    <span class="card-label">Desenvolvimento de Jogos</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script>
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                parent.postMessage('programming', '*');
+            });
+        });
+
+        document.querySelector('.btn-primary').addEventListener('click', () => {
+            parent.postMessage('programming', '*');
+        });
+
+        document.querySelector('.btn-secondary').addEventListener('click', () => {
+            parent.postMessage('contact', '*');
+        });
+
+    </script>
+
+</body>
+
+</html>
